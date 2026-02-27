@@ -1,0 +1,142 @@
+body {
+    margin: 0;
+    padding: 40px;
+    font-family: 'playfair display', serif;
+    background: linear-gradient(135deg, #d8cfc4, #f3efe6);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+/* button */
+
+.round-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(145deg, #1e90ff, #0066ff);
+    color: white;
+    font-size: 34px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.round-btn:hover {
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+/* overlay */  
+
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 10;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    padding: 25px;
+    width: 340px;
+    border-radius: 15px;
+    z-index: 20;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+input[type="file"] {
+    margin-top: 10px;
+}
+
+.popup button {
+    margin-top: 15px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #1e90ff;
+    color: white;
+    cursor: pointer;
+}
+
+/* galeri */
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 180px;
+    height: 240px;
+    object-fit: cover;
+    margin: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+    transform: translateY(-8px) scale(1.05);
+}
+
+/* Halaman Buku */
+.book-page {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 700px;
+    padding: 80px;
+    background: #fffdf5;
+    border-radius: 10px;
+    box-shadow:
+        0 0 0 1px rgba(0,0,0,0.05),
+        0 30px 80px rgba(0,0,0,0.6);
+    overflow-y: auto;
+    line-height: 2;
+    z-index: 30;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -45%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.close-btn {
+    margin-top: 30px;
+    padding: 8px 16px;
+    border: none;
+    background: #333;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}

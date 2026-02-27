@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teras Teduh</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Welcome to Teras Teduh</h2>
+    <div class="gallery" id="gallery"></div>
+
+    <button class="round-btn" onclick="openPopup()">+</button>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <h3>Create Story</h3>
+        <input type="text" id="titleInput" placeholder="Story Title" 
+         style="width:100%; padding:8px; border-radius:8px; border:1px solid #ccc; margin-bottom:10px;">
+         <textarea id="textInput" placeholder="Write your story here..."></textarea>
+         <input type="file" id="imageInput" accept="image/*">
+         <button onclick="createBook()">Create</button>
+    </div>
+
+    <div class="book-page" id="bookPage">
+    <div id="bookContent"></div>
+    <button class="close-btn" onclick="closeBook()">Close</button>
+</div>
+
+
+<script src="jawa.js"></script>
+    
+</body>
+</html>
