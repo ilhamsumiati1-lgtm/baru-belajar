@@ -5,6 +5,10 @@ body {
     background: linear-gradient(135deg, #d8cfc4, #f3efe6);
 }
 
+body {
+    font-size: 16px;
+}
+
 h2 {
     text-align: center;
     margin-bottom: 40px;
@@ -112,8 +116,9 @@ input[type="file"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 600px;
-    height: 700px;
+    width: 90%;
+    max-width: 600px;
+    height: 80vh;
     padding: 80px;
     background: #fffdf5;
     border-radius: 10px;
@@ -139,4 +144,16 @@ input[type="file"] {
     color: white;
     border-radius: 8px;
     cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .book-page {
+        padding: 40px;
+        height: 85vh;
+    }
+
+    .gallery img {
+        width: 140px;
+        height: 200px;
+    }
 }
