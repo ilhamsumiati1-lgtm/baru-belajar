@@ -9,7 +9,7 @@ const titleInput = document.getElementById("titleInput");
 const textInput = document.getElementById("textInput");
 const imageInput = document.getElementById("imageInput");
 
-let stories = [];
+let stories = JSON.parse(localStorage.getItem("stories")) || [];
 
 function openPopup() {
     popup.style.display = "block";
@@ -43,6 +43,8 @@ function createBook() {
             text: text,
             image: e.target.result
         });
+
+        localStorage.setItem("stories", JSON.stringify(stories));
 
         const wrapper = document.createElement("div");
         wrapper.style.position = "relative";
@@ -94,3 +96,48 @@ overlay.onclick = function() {
     closePopup();
     closeBook();
 };
+
+function renderStories() {
+    gallery.innerHTML = "";
+
+    stories.forEach((story, index) => {
+        const wrapper = document.createElement("div");
+        wrapper.style.position = "relative";
+
+        const img = document.createElement("img");
+        img.src = story.image;
+
+        img.onclick = function() {
+            bookContent.innerHTML = `
+                <h2 style="margin-top:0;">${story.title}</h2>
+                <p>${story.text}</p>
+            `;
+            bookPage.style.display = "block";
+            overlay.style.display = "block";
+        };
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.innerText = "✕";
+        deleteBtn.style.position = "absolute";
+        deleteBtn.style.top = "20px";
+        deleteBtn.style.right = "20px";
+        deleteBtn.style.background = "white";
+        deleteBtn.style.border = "none";
+        deleteBtn.style.borderRadius = "50%";
+        deleteBtn.style.cursor = "pointer";
+        deleteBtn.style.width = "28px";
+        deleteBtn.style.height = "28px";
+        deleteBtn.style.boxShadow = "0 5px 15px rgba(0,0,0,0.2)";
+
+        deleteBtn.onclick = function() {
+            stories.splice(index, 1);
+            localStorage.setItem("stories", JSON.stringify(stories));
+            renderStories();
+        };
+
+        wrapper.appendChild(img);
+        wrapper.appendChild(deleteBtn);
+        gallery.appendChild(wrapper);
+    });
+}
+renderStories();
